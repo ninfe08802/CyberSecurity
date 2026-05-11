@@ -7,3 +7,6 @@ CyberIntelligence Tools:
 - IP Reputation checker: https://www.abuseipdb.com/
 - URL & Hash checker: https://www.virustotal.com/gui/home/url    
 - Threat Intelligence: https://mythreatintel.com/
+- Identify Data Leaks: https://haveibeenpwned.com/
+- Identify Data Leaks 2: https://leakpeek.com/
+- Identify Data Leaks 3: https://app.osintleak.com/dashboard/search
