@@ -18,11 +18,12 @@ It is very important to note, that the [sysmon xml](https://github.com/swiftonse
 
 Next, you need to configure your agent or group agent to send the logs from Sysmon to [Wazuh](https://wazuh.com/blog/using-wazuh-to-monitor-sysmon-events/). 
 
-<localfile>
+```<localfile>
 <location>Microsoft-Windows-Sysmon/Operational</location>
 <log_format>eventchannel</log_format>
 <!-- <query>Event[System[(EventID=15)]]</query> If you want only monitor this events -->
-</localfile>
+</localfile> 
+```
 
 After that, you will need to restart the Wazuh agent to apply the changes. If you are using agent groups, the configuration will be pushed automatically, although a restart of the Wazuh agent service might be required to ensure the new settings are active.
 
