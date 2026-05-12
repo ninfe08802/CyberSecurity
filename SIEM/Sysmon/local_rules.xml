@@ -1,0 +1,10 @@
+<group name="sysmon,">
+<rule id="600033" level="5">
+  <if_group>sysmon_event_15</if_group>
+  <field name="win.eventdata.contents" type="pcre2">(?i)HostUrl=https?://</field>
+  <description>Sysmon: Descarga desde Internet detectada
+    Fichero: $(win.eventdata.targetFilename) | URL: $(win.eventdata.contents) | Usuario: $(win.eventdata.user) | Proceso: $(win.eventdata.image)
+  </description>
+  <group>sysmon,download_detected,download_url_tracked</group>
+</rule>
+</group>

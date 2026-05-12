@@ -1,0 +1,6 @@
+<rule id="185013" level="0">
+    <if_sid>18100</if_sid>
+    <match>Microsoft-Windows-Sysmon/Operational: INFORMATION(15)</match>
+    <description>Sysmon - Event 15</description>
+    <group>sysmon_event_15,</group>
+</rule>

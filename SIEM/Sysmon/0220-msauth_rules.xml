@@ -1,0 +1,5 @@
+<group name="windows,">
+  <rule id="18100" level="0">
+    <category>windows</category>
+    <description>Group of windows rules.</description>
+  </rule>
