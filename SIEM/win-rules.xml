@@ -1,0 +1,28 @@
+<!--  captura cualquier evento 4625 de los agentes Windows -->
+  <rule id="600035" level="0">
+    <if_group>windows_security</if_group>
+    <field name="win.system.eventID">^4625$</field>
+    <description>Fallo de inicio de sesiÃ³n (Evento 4625)</description>
+    <options>no_full_log</options>
+    <group>authentication_failed,</group>
+  </rule>
+
+  <!-- Se dispara si 600035 ocurre 10 veces en 10 minutos -->
+  <rule id="600036" level="9" frequency="10" timeframe="600">
+    <if_matched_sid>600035</if_matched_sid>
+    <same_field>win.eventdata.targetUserName</same_field>
+    <same_field>win.eventdata.targetDomainName</same_field>
+    <description>MÃºltiples fallos de inicio de sesiÃ³n en usuario: $(win.eventdata.targetUserName) - $(win.system.computer) </description>
+    <group>authentication_failed,brute_force,</group>
+  </rule>
+
+<!-- Login correcto despues de multiples fallos -->
+<rule id="600037" level="10" timeframe="600">
+  <if_matched_sid>600036</if_matched_sid>
+  <same_field>win.eventdata.targetUserName</same_field>
+  <same_field>win.eventdata.targetDomainName</same_field>
+  <if_group>windows_security</if_group>
+  <field name="win.system.eventID">^4624$</field>
+  <description>Login exitoso tras mÃºltiples fallos en usuario: $(win.eventdata.targetUserName) - $(win.system.computer)</description>
+  <group>authentication_success,brute_force,compromise_possible,</group>
+</rule>
