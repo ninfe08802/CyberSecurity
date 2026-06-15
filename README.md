@@ -1,4 +1,4 @@
-# 🛡️ My Cybersecurity & IT Portfolio
+# 🛡️ My IT Portfolio
 
 Hey! I'm , an IT specialist focused on Linux systems and defensive cybersecurity. This repository acts as my personal portfolio where I share my hands-on labs, research, and security configurations
 
